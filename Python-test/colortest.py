@@ -1,5 +1,4 @@
 print("Welcome to my program! If you put in 2 colors I will combine them for you!")
-
 def color():
 	color1 = input("What is the first color?: ").lower()
 	color2 = input("What is the second color?: ").lower()
@@ -90,5 +89,12 @@ def color():
 		print ("I'm sorry,", color1, "and", color2, "are not colors in my database!")
 		print ("Please try again!")
 		color()
-		
-color()
+
+def rgb():
+	print("Im still making this!")
+
+which = input("Would you like to use RGB values or color names? ").lower()
+if which == "color":
+	color()
+elif which == "rgb":
+	rgb()
