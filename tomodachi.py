@@ -9,6 +9,8 @@ def start():
 	print("Type Help in order to view various inputs.")
 	global name
 	name = input("Now give me a name!: ")
+	global timeold
+	timeold = datetime.time
 	main()
 
 def main():
@@ -20,11 +22,15 @@ def main():
 def timecheck():
 	global hour
 	global minute
+	global timenew
 	timenew = datetime.time
 	now = datetime.datetime.now()
 	hour = now.hour
 	minute = now.minute
 
+def mytimedelta():
+	global timedif
+	timedif = datetime.timedelta(timeold)
 
 def choice(userinput):
 
@@ -32,11 +38,15 @@ def choice(userinput):
 		help()
 	if userinput == "timecheck":
 		timecheck()
-		print ("Current time is:", hour, ":",minute)
+		print ("Current time is: "+str(hour)+":"+str(minute))
+		print ("The last time you checked on", name, "was at", str(hour)+":"+str(minute)+ ".")
 		main()
 	if userinput == "name":
 		print ("Your pet's name is", name +",","how could you forget!")
 		main()
+	if userinput == "1":
+		mytimedelta()
+		print(timedif)
 	print("Sorry, I don't recognize that input, please try again!")
 	main()
 
@@ -44,7 +54,7 @@ def choice(userinput):
 
 def help():
 	print("\nWhat would you like help with?")
-	print("1: Inputs, 2: Gameplay, 3: Credits, 4: Return to game")
+	print("1: Inputs, 2: Gameplay, 3: Credits, 4: Return to Game")
 	helpchoice = str(input("Choice?: ")).lower()
 	if helpchoice == "1" or helpchoice == "inputs":
 		print("Inputs are:")
